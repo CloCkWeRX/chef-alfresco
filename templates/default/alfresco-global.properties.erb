@@ -32,11 +32,13 @@ swf.exe=<%= node[:alfresco][:swf][:exe] %>
 #
 #db.schema.update=true
 
+<% if node['alfresco']['db']['db'] == 'mysql' %>
 #
 # MySQL connection
 #
 db.driver=org.gjt.mm.mysql.Driver
 db.url=<%= node[:alfresco][:db][:jdbc_url] %>
+<% end %>
 
 #
 # Oracle connection
@@ -55,11 +57,13 @@ db.url=<%= node[:alfresco][:db][:jdbc_url] %>
 #db.url=jdbc:jtds:sqlserver://localhost:1433/alfresco
 #db.txn.isolation=4096
 
+<% if node['alfresco']['db']['db'] == 'postgres' %>
 #
 # PostgreSQL connection (requires postgresql-8.2-504.jdbc3.jar or equivalent)
 #
-#db.driver=org.postgresql.Driver
-#db.url=jdbc:postgresql://localhost:5432/alfresco
+db.driver=org.postgresql.Driver
+db.url=<%= node[:alfresco][:db][:jdbc_url] %>
+<% end %>
 
 #
 # Index Recovery Mode

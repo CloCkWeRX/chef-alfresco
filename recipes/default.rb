@@ -17,5 +17,10 @@
 # limitations under the License.
 #
 
-include_recipe 'alfresco::mysql_server'
+case node['alfresco']['db']['db'] 
+when 'postgres'
+  include_recipe 'postgres'
+when 'mysql'
+  include_recipe 'alfresco::mysql_server'
+end
 include_recipe 'alfresco::app_server'

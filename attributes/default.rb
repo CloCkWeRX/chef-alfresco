@@ -42,12 +42,20 @@ node.set['tomcat']['restart_timing'] = "immediately"
 
 
 ### Database Settings
+default['alfresco']['db']['db']        = "mysql" # or 'postgres'
 
 default['alfresco']['db']['user']      = "alfresco"
 default['alfresco']['db']['password']  = "alfresco"
 default['alfresco']['db']['database']  = "alfresco"
-default['alfresco']['db']['jdbc_url']  =
-  "jdbc:mysql://localhost/#{node['alfresco']['db']['database']}?useUnicode=yes&characterEncoding=UTF-8"
+
+case node['alfresco']['db']['db'] 
+when 'postgres'
+  default['alfresco']['db']['jdbc_url']  =
+  "jdbc:postgresql://localhost/#{node['alfresco']['db']['database']}?charSet=UTF-8"
+when 'mysql'
+  default['alfresco']['db']['jdbc_url']  =
+    "jdbc:mysql://localhost/#{node['alfresco']['db']['database']}?useUnicode=yes&characterEncoding=UTF-8"
+end
 
 default['alfresco']['root_dir'] = "/srv/alfresco/alf_data"
 
