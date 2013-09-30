@@ -42,7 +42,7 @@ tomcat_work_dir = node['tomcat']['work_dir']
 ### Include Recipe Dependencies
 
 include_recipe "java"
-include_recipe "mysql::client"
+include_recipe "mysql::client" if node['alfresco']['db']['db'] == 'mysql'
 include_recipe "openoffice::headless"
 include_recipe "openoffice::apps"
 include_recipe "imagemagick"
@@ -85,6 +85,8 @@ link "#{tomcat_dir}/lib/mysql-connector-java.jar" do
   to      "/usr/share/java/mysql-connector-java.jar"
   owner   "root"
   group   "root"
+
+  only_if { node['alfresco']['db']['db'] == 'mysql' }
 end
 
 
