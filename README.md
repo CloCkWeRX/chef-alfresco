@@ -45,6 +45,7 @@ This cookbook depends on the following external cookbooks:
 * [imagemagick][imagemagick_cb] (Opscode)
 * [java][java_cb] (Opscode)
 * [mysql][mysql_cb] (Opscode)
+* [postgres][postgres_cb] (Opscode)
 * [openoffice][openoffice_cb]
 * [swftools][swftools_cb]
 * [tomcat][tomcat_cb] (Opscode)
@@ -125,6 +126,8 @@ Installs Alfresco Community Edition.
 ### <a name="recipes-app-server"></a> app_server
 
 ### <a name="recipes-mysql-server"></a> mysql_server
+
+### <a name="recipes-postgres-server"></a> postgres_server
 
 ### <a name="recipes-nginx-proxy-conf"></a> nginx_proxy_conf
 
@@ -230,6 +233,7 @@ limitations under the License.
 [kgc]:            https://github.com/websterclay/knife-github-cookbooks#readme
 [librarian]:      https://github.com/applicationsonline/librarian#readme
 [mysql_cb]:       http://community.opscode.com/cookbooks/mysql
+[postgres_cb]:    http://community.opscode.com/cookbooks/postgres
 [openoffice_cb]:  http://community.opscode.com/cookbooks/openoffice
 [tomcat_cb]:      http://community.opscode.com/cookbooks/tomcat
 [swftools_cb]:    http://community.opscode.com/cookbooks/swftools
